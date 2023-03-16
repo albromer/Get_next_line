@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albromer <albromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 11:21:21 by albromer          #+#    #+#             */
-/*   Updated: 2023/03/16 14:05:28 by albromer         ###   ########.fr       */
+/*   Created: 2023/03/16 11:59:11 by albromer          #+#    #+#             */
+/*   Updated: 2023/03/16 13:55:14 by albromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
 	char		*line;
 	static char	*rest_content;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0)
 		return (NULL);
 	rest_content = read_line(fd, rest_content);
 	if (!rest_content)
