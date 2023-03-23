@@ -6,26 +6,11 @@
 /*   By: albromer <albromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 11:59:11 by albromer          #+#    #+#             */
-/*   Updated: 2023/03/16 13:55:14 by albromer         ###   ########.fr       */
+/*   Updated: 2023/03/21 10:41:02 by albromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
-
-char	*get_next_line(int fd)
-{
-	char		*line;
-	static char	*rest_content;
-
-	if (fd < 0)
-		return (NULL);
-	rest_content = read_line(fd, rest_content);
-	if (!rest_content)
-		return (NULL);
-	line = ft_get_line(rest_content);
-	rest_content = save_rest_content(rest_content);
-	return (line);
-}
 
 char	*save_rest_content(char *rest_content)
 {
@@ -105,4 +90,19 @@ char	*read_line(int fd, char *rest_content)
 	}
 	free (buffer);
 	return (rest_content);
+}
+
+char	*get_next_line(int fd)
+{
+	char		*line;
+	static char	*rest_content[255];
+
+	if (fd < 0 || fd > 255)
+		return (0);
+	rest_content[fd] = read_line(fd, rest_content[fd]);
+	if (!rest_content[fd])
+		return (NULL);
+	line = ft_get_line(rest_content[fd]);
+	rest_content[fd] = save_rest_content(rest_content[fd]);
+	return (line);
 }

@@ -6,26 +6,11 @@
 /*   By: albromer <albromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 11:21:21 by albromer          #+#    #+#             */
-/*   Updated: 2023/03/16 14:05:28 by albromer         ###   ########.fr       */
+/*   Updated: 2023/03/23 11:47:53 by albromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-char	*get_next_line(int fd)
-{
-	char		*line;
-	static char	*rest_content;
-
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
-	rest_content = read_line(fd, rest_content);
-	if (!rest_content)
-		return (NULL);
-	line = ft_get_line(rest_content);
-	rest_content = save_rest_content(rest_content);
-	return (line);
-}
 
 char	*save_rest_content(char *rest_content)
 {
@@ -39,7 +24,7 @@ char	*save_rest_content(char *rest_content)
 	if (!rest_content[i])
 	{
 		free(rest_content);
-		return (NULL);
+		return (0);
 	}
 	str = (char *)malloc(sizeof(char) * (ft_strlen(rest_content) - i + 1));
 	if (!str)
@@ -105,4 +90,19 @@ char	*read_line(int fd, char *rest_content)
 	}
 	free (buffer);
 	return (rest_content);
+}
+
+char	*get_next_line(int fd)
+{
+	char		*line;
+	static char	*rest_content;
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (0);
+	rest_content = read_line(fd, rest_content);
+	if (!rest_content)
+		return (0);
+	line = ft_get_line(rest_content);
+	rest_content = save_rest_content(rest_content);
+	return (line);
 }
