@@ -6,7 +6,7 @@
 /*   By: albromer <albromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 11:59:11 by albromer          #+#    #+#             */
-/*   Updated: 2023/03/21 10:41:02 by albromer         ###   ########.fr       */
+/*   Updated: 2023/03/28 10:09:41 by albromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ char	*get_next_line(int fd)
 		return (0);
 	rest_content[fd] = read_line(fd, rest_content[fd]);
 	if (!rest_content[fd])
-		return (NULL);
+		return (0);
 	line = ft_get_line(rest_content[fd]);
 	rest_content[fd] = save_rest_content(rest_content[fd]);
 	return (line);

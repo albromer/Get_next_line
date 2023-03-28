@@ -6,7 +6,7 @@
 /*   By: albromer <albromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 11:21:21 by albromer          #+#    #+#             */
-/*   Updated: 2023/03/23 11:47:53 by albromer         ###   ########.fr       */
+/*   Updated: 2023/03/28 12:04:51 by albromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ char	*save_rest_content(char *rest_content)
 	if (!rest_content[i])
 	{
 		free(rest_content);
-		return (0);
+		return (NULL);
 	}
-	str = (char *)malloc(sizeof(char) * (ft_strlen(rest_content) - i + 1));
+	str = malloc(sizeof(char) * (ft_strlen(rest_content) - i + 1));
 	if (!str)
 		return (NULL);
 	i++;

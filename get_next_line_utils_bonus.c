@@ -6,7 +6,7 @@
 /*   By: albromer <albromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 11:58:33 by albromer          #+#    #+#             */
-/*   Updated: 2023/03/16 12:13:23 by albromer         ###   ########.fr       */
+/*   Updated: 2023/03/28 10:10:52 by albromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	i = -1;
 	x = 0;
 	if (s1)
-		while (s1[i++] != '\0')
+		while (s1[++i] != '\0')
 			str[i] = s1[i];
 	while (s2[x] != '\0')
 		str[i++] = s2[x++];
