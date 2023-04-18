@@ -6,11 +6,16 @@
 /*   By: albromer <albromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 11:21:42 by albromer          #+#    #+#             */
-/*   Updated: 2023/03/14 13:21:12 by albromer         ###   ########.fr       */
+/*   Updated: 2023/04/04 11:08:03 by albromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 # include <unistd.h>
 # include <stdio.h>

@@ -6,11 +6,11 @@
 /*   By: albromer <albromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 11:58:33 by albromer          #+#    #+#             */
-/*   Updated: 2023/03/28 10:10:52 by albromer         ###   ########.fr       */
+/*   Updated: 2023/04/04 10:35:38 by albromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(char *str)
 {

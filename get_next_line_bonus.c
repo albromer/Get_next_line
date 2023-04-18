@@ -6,7 +6,7 @@
 /*   By: albromer <albromer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 11:59:11 by albromer          #+#    #+#             */
-/*   Updated: 2023/03/28 10:09:41 by albromer         ###   ########.fr       */
+/*   Updated: 2023/03/28 12:25:22 by albromer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ char	*read_line(int fd, char *rest_content)
 		if (read_bytes == -1)
 		{
 			free (buffer);
+			free (rest_content);
 			return (NULL);
 		}
 		buffer[read_bytes] = '\0';
